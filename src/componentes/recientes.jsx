@@ -21,8 +21,7 @@ function Recientes() {
     setCoor2(coordinates_2)
   }
 
-
-
+  let URLMapa = `https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d57627.40691107387!2d${coor1}!3d${coor2}!3m2!1i1024!2i768!4f13.1!5e1!3m2!1ses!2ses!4v1717443201040!5m2!1ses!2ses`
 
   useEffect(() => {
     LastFind()
@@ -63,9 +62,9 @@ function Recientes() {
             <iframe
             id="inlineFrameExample"
             title="Inline Frame Example"
-            width="1200"
+            width="1100"
             height="800"
-            src='https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d212885.1074621023!2d{coor1}!3d{coor2}!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMzPCsDM5JzQ4LjAiTiAxMTbCsDQ2JzM5LjYiVw!5e0!3m2!1ses!2ses!4v1717424309896!5m2!1ses!2ses'>
+            src={URLMapa}>
             </iframe>
 
             </div>
