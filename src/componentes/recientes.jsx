@@ -2,7 +2,7 @@ import { useState, useRef, useEffect } from 'react'
 
 import '../css/recientes.css'
 
-import { Last } from '../api.js'
+import { Last, Detalle, Count } from '../api.js'
 
 
 
@@ -10,6 +10,8 @@ import { Last } from '../api.js'
 function Recientes() {
   const [datosAPI, setDatosAPI] = useState('')
   const [data, setData] = useState('')
+  const [Detail, setDetail] = useState('')
+  const [contador, setContador] = useState('')
   const [coor1, setCoor1] = useState('')
   const [coor2, setCoor2] = useState('')
 
@@ -19,15 +21,27 @@ function Recientes() {
     let coordinates_2 = data.geometry.coordinates[1]
     setCoor1(coordinates_1)
     setCoor2(coordinates_2)
+
+    const detalleCompleto = await Detalle(data.id)
+    let detalleArray = [
+      detalleCompleto.properties.mag,
+      detalleCompleto.properties.place,
+      detalleCompleto.properties.tsunami,
+      detalleCompleto.properties.products.origin[0].properties.depth,
+      detalleCompleto.properties.products.origin[0].properties.eventtime
+    ]
+
+    setDetail(detalleArray)
   }
 
   let URLMapa = `https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d57627.40691107387!2d${coor1}!3d${coor2}!3m2!1i1024!2i768!4f13.1!5e1!3m2!1ses!2ses!4v1717443201040!5m2!1ses!2ses`
 
+  
   useEffect(() => {
     LastFind()
     async function LastFind() {
       let datos = await Last();
-      datos = await datos.features
+      datos = await datos.features      
   
       const listAPI = await datos.map((data) =>
         <div className='div-tarjeta' onClick={()=>{
@@ -35,14 +49,21 @@ function Recientes() {
             openMap(data)
             }}>
             <p key={data.properties.ids}>Localizacion: {data.properties.place}</p>
-            <p key={data.properties.code}>Magnitud: {data.properties.mag}</p>
-            <p key={data.properties.time}>Estado: {data.properties.status}</p>
-            <p key={data.properties.updated}>Riesgo de tsunami: {data.properties.tsunami}</p>
+            <p key={data.id}>Magnitud: {data.properties.mag}</p>
         </div>
       )
       setDatosAPI(listAPI)
     }
   }, []);
+
+
+  useEffect(() => {
+    Conteo()
+    async function Conteo() {
+      const conteo = await Count()
+      setContador(conteo)
+    }
+  })
   
 
 
@@ -51,13 +72,24 @@ function Recientes() {
     <div id='all'>
         <div id='reciente'>
 
-            <h2>Ultimos 15 terremotos registrados</h2>
+            <p className='rotulo'>Ultimos 20 terremotos registrados</p>
+            <p className='rotulo'>Teremotos registrados hoy: {contador}</p>
             {datosAPI}
 
         </div>
         <div id='mapas'>
 
-            <h1>{}</h1>
+          <div id='mapa-datos'>
+            <h1>Datos del terremoto</h1>
+            <p>Fecha: {Detail[4]}</p>
+            <p>Magnitud: {Detail[0]}</p>
+            <p>Lugar: {Detail[1]}</p>
+            <p>Riesgo de tsunami: {Detail[2]}</p>
+            <p>Profundidad: {Detail[3]}</p>
+            <p>properties.products.nearby-cities[0].contents.nearby-cities.json.url</p>
+          </div>
+
+          <div id='mapa-mapa'>
 
             <iframe
             id="inlineFrameExample"
@@ -67,8 +99,9 @@ function Recientes() {
             src={URLMapa}>
             </iframe>
 
-            </div>
-    </div>
+          </div>
+        </div>
+      </div>
   )
 }
 

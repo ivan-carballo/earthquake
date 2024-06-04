@@ -1,3 +1,5 @@
+body {background-color: black;}
+
 .div-tarjeta {
     border: solid 2px black;
     padding: 15px;
@@ -5,6 +7,8 @@
     text-align: center;
     cursor: pointer;
     margin: 5px 0;
+    background-color: white;
+    border-radius: 25px;
 }
 
 .div-tarjeta p {
@@ -21,21 +25,41 @@
     grid-template-columns: 1fr 2fr;
     justify-content: center;
     width: 100%;
-
+    margin-top: 50px;
 }
 
 #reciente {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-left: 25px;
+}
+
+#reciente > .rotulo{
+    color: rgb(190, 190, 190);
+    font-size: 1.2rem;
+    text-align: center;
 }
 
 #mapas {
     display: flex;
+    flex-direction: column;
     margin: 50px;
-    justify-content: center;
+    align-self: flex-end;
+    color: antiquewhite;
 }
 
 #inlineFrameExample {
     border-radius: 30px;
+}
+
+#mapa-datos {
+    margin-left: 50px;
+}
+
+#mapa-datos p{
+    margin: 0 5px
+}
+
+#mapa-mapa {
+    margin-top: 25px;
 }

@@ -9,10 +9,24 @@ let formattedDate_yesterday = `${year}-${month}-${day-1}`;
 
 
 
-async function Last(initial, final) {
-  const latest = await fetch(`https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&starttime=${formattedDate_yesterday}&endtime=${formattedDate}&limit=15`);
-  const bebidas = await latest.json();
-  return (bebidas)
+async function Last() {
+  let latest = await fetch(`https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&starttime=${formattedDate_yesterday}&endtime=${formattedDate}&limit=20`);
+  latest = await latest.json();
+  return (latest)
+}
+
+
+async function Detalle(id) {
+  let detalle = await fetch(`https://earthquake.usgs.gov/fdsnws/event/1/query?eventid=${id}&format=geojson`);
+  detalle = await detalle.json();
+  return (detalle)
+}
+
+
+async function Count() {
+  let contador = await fetch(`https://earthquake.usgs.gov/fdsnws/event/1/count?starttime=${formattedDate_yesterday}&endtime=${formattedDate}`);
+  contador = await contador.json();
+  return (contador)
 }
 
 
@@ -26,5 +40,7 @@ async function Last(initial, final) {
 
 
 export {
-  Last
+  Last,
+  Detalle,
+  Count
 }
