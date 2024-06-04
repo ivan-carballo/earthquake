@@ -26,11 +26,14 @@ function Buscador() {
         API_findDate = await API_findDate.features
 
         const resultsAPI = await API_findDate.map((data) =>
-            <div className='div-tarjeta' onClick={()=>{
+            <div className='div-tarjeta' onClick={ async ()=>{
+                let detalle_findDate = await Detalle(data.id)
+                let time = await detalle_findDate.properties.products.origin[0].properties.eventtime
                 setData(data)
                 }}>
                 <p key={data.properties.ids}>Localizacion: {data.properties.place}</p>
                 <p key={data.id}>Magnitud: {data.properties.mag}</p>
+                <p key={time}>Magnitud: {time}</p>
             </div>
         )
         setResults(resultsAPI)
