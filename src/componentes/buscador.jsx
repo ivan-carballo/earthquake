@@ -3,6 +3,8 @@ import { useState, useRef, useEffect } from 'react'
 import '../css/buscador.css'
 
 import { formatearDate, Last, Detalle, Count, FindDate } from '../api.js'
+import { Modal } from '../modal/modal.jsx'
+
 
 
 
@@ -10,6 +12,7 @@ function Buscador() {
     const [initialData, setInitialData] = useState('')
     const [finalData, setFinalData] = useState('')
     const [results, setResults] = useState('')
+    const [data, setData] = useState('')
 
 
     async function ClickFindDate(e) {
@@ -48,6 +51,17 @@ function Buscador() {
                     <input name='findDate' type='button' value='Buscar por fecha' onClick={ClickFindDate}/>
                 </form>
             </div>
+
+            {data && 
+            <Modal isOpen={true} onClose={()=> {
+                setData(null)
+                }}>
+            <div id="modalNombre">
+                <p>{data.id}</p>
+            </div>
+              </Modal>
+            }
+            
 
             <div id='results'>
                 {results}
