@@ -1,0 +1,22 @@
+#all {
+    display: flex;
+    flex-direction: column;
+}
+
+#formDate {
+    margin-top: 15px;
+}
+
+#results {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    justify-content: center;
+    margin: 50px;
+}
+
+.div-tarjeta {
+    border-radius: 25px;
+    background-color: white;
+    justify-self: center;
+    width: 450px;
+}

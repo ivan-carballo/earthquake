@@ -23,12 +23,14 @@ function Recientes() {
     setCoor2(coordinates_2)
 
     const detalleCompleto = await Detalle(data.id)
+
     let detalleArray = [
-      detalleCompleto.properties.mag,
-      detalleCompleto.properties.place,
-      detalleCompleto.properties.tsunami,
-      detalleCompleto.properties.products.origin[0].properties.depth,
-      detalleCompleto.properties.products.origin[0].properties.eventtime
+      'Magnitud del seismo: ' + detalleCompleto.properties.mag,
+      'Localizacion: ' + detalleCompleto.properties.place,
+      'Riesgo de tsunami: ' + detalleCompleto.properties.tsunami,
+      'Profundidad: ' + detalleCompleto.properties.products.origin[0].properties.depth,
+      'Fecha: ' + detalleCompleto.properties.products.origin[0].properties.eventtime,
+      //'Longitud: ' + detalleCompleto.properties.products.origin[0].properties.azimuthal-gap
     ]
 
     setDetail(detalleArray)
@@ -81,11 +83,12 @@ function Recientes() {
 
           <div id='mapa-datos'>
             <h1>Datos del terremoto</h1>
-            <p>Fecha: {Detail[4]}</p>
-            <p>Magnitud: {Detail[0]}</p>
-            <p>Lugar: {Detail[1]}</p>
-            <p>Riesgo de tsunami: {Detail[2]}</p>
-            <p>Profundidad: {Detail[3]}</p>
+            <p>{Detail[4]}</p>
+            <p>{Detail[0]}</p>
+            <p>{Detail[1]}</p>
+            <p>{Detail[2]}</p>
+            <p>{Detail[3]}</p>
+            {/* <p>{Detail[5]}</p> */}
             <p>properties.products.nearby-cities[0].contents.nearby-cities.json.url</p>
           </div>
 
