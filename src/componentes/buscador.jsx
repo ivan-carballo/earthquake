@@ -4,8 +4,7 @@ import '../css/buscador.css'
 
 import { formatearDate, Last, Detalle, Count, FindDate } from '../api.js'
 import { Modal } from '../modal/modal.jsx'
-import { func } from 'prop-types'
-
+import { openCard } from './openCard.jsx'
 
 
 
@@ -34,7 +33,7 @@ function Buscador() {
         const resultsAPI = await API_findDate.map((data) =>
             <div className='div-tarjeta' onClick={ async ()=>{
                 setData(data)
-                openModal(data)
+                setDetail(await openCard(data))
                 }}>
                 <p key={data.properties.ids}>Localizacion: {data.properties.place}</p>
                 <p key={data.id}>Magnitud: {data.properties.mag}</p>
@@ -43,31 +42,6 @@ function Buscador() {
         setResults(resultsAPI)
     }
     
-
-    
-    async function openModal(data) {
-        let coordinates_1 = data.geometry.coordinates[0]
-        let coordinates_2 = data.geometry.coordinates[1]
-        setCoor1(coordinates_1)
-        setCoor2(coordinates_2)
-
-        let URLMapa = `https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d57627.40691107387!2d${coor1}!3d${coor2}!3m2!1i1024!2i768!4f13.1!5e1!3m2!1ses!2ses!4v1717443201040!5m2!1ses!2ses`
-    
-        const detalleCompleto = await Detalle(data.id)
-    
-        let detalleArray = [
-          'Magnitud del seismo: ' + detalleCompleto.properties.mag,
-          'Localizacion: ' + detalleCompleto.properties.place,
-          'Riesgo de tsunami: ' + detalleCompleto.properties.tsunami,
-          'Profundidad: ' + detalleCompleto.properties.products.origin[0].properties.depth,
-          'Fecha: ' + detalleCompleto.properties.products.origin[0].properties.eventtime,
-          //'Longitud: ' + detalleCompleto.properties.products.origin[0].properties.azimuthal-gap
-        ]
-    
-        setDetail(detalleArray)        
-    }
-
-
 
 
     return (
