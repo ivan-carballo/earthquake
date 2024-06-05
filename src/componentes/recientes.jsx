@@ -15,7 +15,6 @@ function Recientes() {
   const [Detail, setDetail] = useState('')
   const [contador, setContador] = useState('')
   const [rotulo, setRotulo] = useState('')
-  const [icono, setIcono] = useState('')
 
 
   

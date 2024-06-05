@@ -44,8 +44,8 @@ async function FindDate(initial, final, mag) {
 }
 
 
-async function NearbyCities(id, update) {
-  let cities = await fetch(`https://earthquake.usgs.gov/product/nearby-cities/${id}/ci/${update}/nearby-cities.json`);
+async function NearbyCities(id, net, update) {
+  let cities = await fetch(`https://earthquake.usgs.gov/product/nearby-cities/${id}/${net}/${update}/nearby-cities.json`);
   cities = await cities.json();
   return (cities)
 }
