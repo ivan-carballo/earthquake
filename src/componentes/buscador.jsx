@@ -51,9 +51,9 @@ function Buscador() {
                     <input className='form-inputs' name='final' type='date' />
                     <br />
                     <label className='form-inputs' htmlFor="mag">Magnitud minima:</label>
-                    <input className='form-inputs' name='mag' type='number' min="0" max="25" />
+                    <input className='form-inputs' id='input-number' name='mag' type='number' min="0" max="25" />
                     <br />
-                    <input className='form-inputs' name='findDate' type='button' value='Buscar por fecha' onClick={ClickFindDate}/>
+                    <input className='form-inputs' name='findDate' type='button' value='Buscar' onClick={ClickFindDate}/>
                 </form>
             </div>
 

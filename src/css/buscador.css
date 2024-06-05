@@ -13,6 +13,8 @@
 
 .form-inputs {
     margin: 5px 10px;
+    border-radius: 15px;
+    padding: 2px 10px;
 }
 
 #results {
@@ -27,4 +29,8 @@
     background-color: white;
     justify-self: center;
     width: 350px;
+}
+
+#input-number {
+    width: 120px;
 }

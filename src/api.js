@@ -17,7 +17,7 @@ let formattedDate_yesterday = `${year}-${month}-${day-1}`;
 
 
 async function Last() {
-  let latest = await fetch(`https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&starttime=${formattedDate_yesterday}&endtime=${formattedDate}&limit=20`);
+  let latest = await fetch(`https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&starttime=${formattedDate_yesterday}&endtime=${formattedDate}&orderby=time&limit=20`);
   latest = await latest.json();
   return (latest)
 }
@@ -38,12 +38,17 @@ async function Count() {
 
 
 async function FindDate(initial, final, mag) {
-  let finder = await fetch(`https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&starttime=${initial}&endtime=${final}&minmagnitude=${mag}`);
+  let finder = await fetch(`https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&starttime=${initial}&endtime=${final}&minmagnitude=${mag}&orderby=time`);
   finder = await finder.json();
   return (finder)
 }
 
 
+async function NearbyCities(id, update) {
+  let cities = await fetch(`https://earthquake.usgs.gov/product/nearby-cities/${id}/ci/${update}/nearby-cities.json`);
+  cities = await cities.json();
+  return (cities)
+}
 
 
 
@@ -58,5 +63,6 @@ export {
   Last,
   Detalle,
   Count,
-  FindDate
+  FindDate,
+  NearbyCities
 }

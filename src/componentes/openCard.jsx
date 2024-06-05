@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from 'react'
-import { Last, Detalle, Count } from '../api.js'
+import { Last, Detalle, Count, NearbyCities } from '../api.js'
 import { FormatearFecha } from './formatearFecha.jsx'
 
 
@@ -17,7 +17,7 @@ async function openCard(data) {
     fechaFormatter = await FormatearFecha(fechaFormatter)
 
     let detalleArray = [
-      'Magnitud del seismo: ' + detalleCompleto.properties.mag,
+      'Magnitud: ' + detalleCompleto.properties.mag,
       'Localizacion: ' + detalleCompleto.properties.place,
       'Riesgo de tsunami: ' + detalleCompleto.properties.tsunami,
       'Profundidad: ' + detalleCompleto.properties.products.origin[0].properties.depth,
