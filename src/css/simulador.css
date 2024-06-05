@@ -1,0 +1,16 @@
+#rotulo_p h1 {
+    color: white;
+    text-align: center;
+}
+
+#form_sim {
+    margin-left: 25px;
+}
+
+#form_sim label {
+    color: bisque;
+}
+
+#button_sim {
+    margin-top: 10px;
+}
