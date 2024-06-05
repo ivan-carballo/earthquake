@@ -8,12 +8,8 @@ import { openCard } from './openCard.jsx'
 
 
 function Buscador() {
-    const [initialData, setInitialData] = useState('')
-    const [finalData, setFinalData] = useState('')
     const [results, setResults] = useState('')
     const [data, setData] = useState('')
-    const [coor1, setCoor1] = useState('')
-    const [coor2, setCoor2] = useState('')
     const [detail, setDetail] = useState('')
 
   
@@ -22,11 +18,12 @@ function Buscador() {
     async function ClickFindDate(e) {
         let inicial = e.target.form[0].valueAsDate
         let final = e.target.form[1].valueAsDate
+        let mag = e.target.form[2].valueAsNumber
 
         inicial = await formatearDate(inicial)
         final = await formatearDate(final)
 
-        let API_findDate = await FindDate(inicial, final)
+        let API_findDate = await FindDate(inicial, final, mag)
         API_findDate = await API_findDate.features
 
         const resultsAPI = await API_findDate.map((data) =>
@@ -53,6 +50,9 @@ function Buscador() {
                     <label className='form-inputs' htmlFor="final">Fecha final</label>
                     <input className='form-inputs' name='final' type='date' />
                     <br />
+                    <label className='form-inputs' htmlFor="mag">Magnitud minima:</label>
+                    <input className='form-inputs' name='mag' type='number' min="0" max="25" />
+                    <br />
                     <input className='form-inputs' name='findDate' type='button' value='Buscar por fecha' onClick={ClickFindDate}/>
                 </form>
             </div>
@@ -65,6 +65,10 @@ function Buscador() {
                 <div id='completo'>
                     <div id="modalNombre">
                         <p>{detail[4]}</p>
+                        <p>{detail[1]}</p>
+                        <p>{detail[0]}</p>
+                        <p>{detail[3]}</p>
+                        <p>{detail[2]}</p>
                     </div>
 
                     <div id='modalMapa'>

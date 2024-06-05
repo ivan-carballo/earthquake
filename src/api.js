@@ -37,8 +37,8 @@ async function Count() {
 }
 
 
-async function FindDate(initial, final) {
-  let finder = await fetch(`https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&starttime=${initial}&endtime=${final}`);
+async function FindDate(initial, final, mag) {
+  let finder = await fetch(`https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&starttime=${initial}&endtime=${final}&minmagnitude=${mag}`);
   finder = await finder.json();
   return (finder)
 }

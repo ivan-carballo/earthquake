@@ -18,7 +18,6 @@ body {background-color: black;}
 
 #root {
     width: 100%;
-
 }
 
 #all {
@@ -59,9 +58,14 @@ body {background-color: black;}
 }
 
 #mapa-datos p{
-    margin: 0 5px
+    margin-left: 10px;
 }
 
 #mapa-mapa {
     margin-top: 25px;
+}
+
+#wait {
+    border-radius: 85%;
+    width: 10%;
 }

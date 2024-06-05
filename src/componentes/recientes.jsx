@@ -4,6 +4,7 @@ import '../css/recientes.css'
 
 import { Last, Detalle, Count } from '../api.js'
 import { openCard } from './openCard.jsx'
+import { func } from 'prop-types'
 
 
 
@@ -14,6 +15,8 @@ function Recientes() {
   const [Detail, setDetail] = useState('')
   const [contador, setContador] = useState('')
   const [rotulo, setRotulo] = useState('')
+  const [icono, setIcono] = useState('')
+
 
   
 
@@ -62,13 +65,13 @@ function Recientes() {
         <div id='mapas'>
 
           <div id='mapa-datos'>
+            <img id='wait' src={icono} />
             <h1>{rotulo}</h1>
             <p>{Detail[4]}</p>
-            <p>{Detail[0]}</p>
             <p>{Detail[1]}</p>
-            <p>{Detail[2]}</p>
+            <p>{Detail[0]}</p>
             <p>{Detail[3]}</p>
-            <p>properties.products.nearby-cities[0].contents.nearby-cities.json.url</p>
+            <p>{Detail[2]}</p>
           </div>
 
           <div id='mapa-mapa'>
