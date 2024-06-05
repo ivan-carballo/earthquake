@@ -13,8 +13,22 @@ async function CiudadesAfectadas(data) {
     const detailNet = details.properties.net
   
     const findCities = await NearbyCities(detailID, detailNet, detailUpdate)
+    
+    let datos
 
-    return findCities
+    if (findCities.length > 0) {
+        
+        datos = await findCities.map((data) =>
+            <div className='div-cities' onClick={ async ()=>{}}>
+                <p key={data.distance}>-{data.distance}Km - {data.name}</p>
+            </div>
+        )
+
+    } else {
+        datos = 'No hay datos de ciudades afectadas'
+    }
+
+    return datos
 }
 
 

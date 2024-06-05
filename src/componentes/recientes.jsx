@@ -80,6 +80,7 @@ function Recientes() {
               <p>{}</p>
             <div id='cities'>
               <h1>{rotuloCiudades}</h1>
+              <p>{cities}</p>
             </div>
           </div>
 
