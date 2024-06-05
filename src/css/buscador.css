@@ -34,3 +34,19 @@
 #input-number {
     width: 120px;
 }
+
+#modalDatos {
+    margin-left: -20px;
+}
+
+#modalNombre p {
+    margin-left: 15px;
+}
+
+#modalCiudades {
+    margin-top: 50px;
+}
+
+#modalCiudades p {
+    margin-left: -3px;
+}

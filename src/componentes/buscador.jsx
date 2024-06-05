@@ -5,12 +5,15 @@ import '../css/buscador.css'
 import { formatearDate, Last, Detalle, Count, FindDate } from '../api.js'
 import { Modal } from '../modal/modal.jsx'
 import { openCard } from './openCard.jsx'
+import { CiudadesAfectadas } from './ciudadesAfectadas.jsx'
+
 
 
 function Buscador() {
     const [results, setResults] = useState('')
     const [data, setData] = useState('')
     const [detail, setDetail] = useState('')
+    const [cities, setCities] = useState('')
 
   
 
@@ -19,6 +22,8 @@ function Buscador() {
         let inicial = e.target.form[0].valueAsDate
         let final = e.target.form[1].valueAsDate
         let mag = e.target.form[2].valueAsNumber
+
+        mag >= 0 ? mag : mag=0
 
         inicial = await formatearDate(inicial)
         final = await formatearDate(final)
@@ -30,6 +35,7 @@ function Buscador() {
             <div className='div-tarjeta' onClick={ async ()=>{
                 setData(data)
                 setDetail(await openCard(data))
+                setCities(await CiudadesAfectadas(data))
                 }}>
                 <p key={data.properties.ids}>Localizacion: {data.properties.place}</p>
                 <p key={data.id}>Magnitud: {data.properties.mag}</p>
@@ -63,12 +69,20 @@ function Buscador() {
                 }}>
 
                 <div id='completo'>
-                    <div id="modalNombre">
-                        <p>{detail[4]}</p>
-                        <p>{detail[1]}</p>
-                        <p>{detail[0]}</p>
-                        <p>{detail[3]}</p>
-                        <p>{detail[2]}</p>
+                    <div id='modalDatos'>
+                        <div id="modalNombre">
+                            <h1>Datos del seismo</h1>
+                            <p>{detail[4]}</p>
+                            <p>{detail[1]}</p>
+                            <p>{detail[0]}</p>
+                            <p>{detail[3]}</p>
+                            <p>{detail[2]}</p>
+                        </div>
+
+                        <div id='modalCiudades'>
+                            <h1>Ciudades afectadas</h1>
+                            <p>{cities}</p>
+                        </div>
                     </div>
 
                     <div id='modalMapa'>

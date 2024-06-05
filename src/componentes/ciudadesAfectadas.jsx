@@ -20,7 +20,7 @@ async function CiudadesAfectadas(data) {
         
         datos = await findCities.map((data) =>
             <div className='div-cities' onClick={ async ()=>{}}>
-                <p key={data.distance}>-{data.distance}Km - {data.name}</p>
+                <p key={data.distance}>Distancia: {data.distance}Km - {data.name}</p>
             </div>
         )
 

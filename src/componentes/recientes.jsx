@@ -36,7 +36,7 @@ function Recientes() {
             setDetail(await openCard(data))
             setCities(await CiudadesAfectadas(data))
             }}>
-            <p key={data.properties.ids}>Localizacion: {data.properties.place}</p>
+            <p key={data.properties.code}>Localizacion: {data.properties.place}</p>
             <p key={data.id}>Magnitud: {data.properties.mag}</p>
         </div>
       )
@@ -88,7 +88,7 @@ function Recientes() {
 
             <iframe
             id="inlineFrameExample"
-            width="1100"
+            width="1000"
             height="800"
             src={Detail[5]}>
             </iframe>
