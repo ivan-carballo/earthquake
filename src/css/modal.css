@@ -12,9 +12,9 @@
 }
 
 .modal-content {
-  background-color: black;
+  background-color: rgb(59, 59, 59);
   position: relative;
-  padding: 15px;
+  padding: 25px;
   border-radius: 25px;
 }
 
@@ -29,3 +29,10 @@
   cursor: pointer;
 }
   
+#completo {
+  display: flex;
+}
+
+#completo div {
+  padding: 0 20px;
+}

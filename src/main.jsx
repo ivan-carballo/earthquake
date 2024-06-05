@@ -1,16 +1,10 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import './index.css'
-
-import { Recientes } from './componentes/recientes'
-import { Buscador } from './componentes/buscador'
-
-
+import App from './App.jsx'
 
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <Buscador />
-    <Recientes />
+    <App />
   </React.StrictMode>,
 )

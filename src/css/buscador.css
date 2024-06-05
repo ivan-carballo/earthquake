@@ -1,10 +1,18 @@
-#all {
+#body {
     display: flex;
     flex-direction: column;
 }
 
 #formDate {
     margin-top: 15px;
+}
+
+#formDate label {
+    color: white;
+}
+
+.form-inputs {
+    margin: 5px 10px;
 }
 
 #results {

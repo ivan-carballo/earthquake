@@ -1,5 +1,7 @@
 import { useState, useRef, useEffect } from 'react'
 import { Last, Detalle, Count } from '../api.js'
+import { FormatearFecha } from './formatearFecha.jsx'
+
 
 
 async function openCard(data) {
@@ -11,12 +13,15 @@ async function openCard(data) {
 
     const detalleCompleto = await Detalle(data.id)
 
+    let fechaFormatter = await detalleCompleto.properties.products.origin[0].properties.eventtime
+    fechaFormatter = await FormatearFecha(fechaFormatter)
+
     let detalleArray = [
       'Magnitud del seismo: ' + detalleCompleto.properties.mag,
       'Localizacion: ' + detalleCompleto.properties.place,
       'Riesgo de tsunami: ' + detalleCompleto.properties.tsunami,
       'Profundidad: ' + detalleCompleto.properties.products.origin[0].properties.depth,
-      'Fecha: ' + detalleCompleto.properties.products.origin[0].properties.eventtime,
+      'Fecha: ' + fechaFormatter,
       URLMapa
     ]
     return detalleArray

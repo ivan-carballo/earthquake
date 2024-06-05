@@ -1,0 +1,12 @@
+#div-links {
+    display: flex;
+    justify-content: left;
+    margin: 5px 25px;
+}
+
+.link {
+    text-decoration: none;
+    color: wheat;
+    margin: 0 15px;
+    font-size: 1.25rem;
+}

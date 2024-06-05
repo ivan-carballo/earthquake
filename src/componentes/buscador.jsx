@@ -7,7 +7,6 @@ import { Modal } from '../modal/modal.jsx'
 import { openCard } from './openCard.jsx'
 
 
-
 function Buscador() {
     const [initialData, setInitialData] = useState('')
     const [finalData, setFinalData] = useState('')
@@ -45,14 +44,16 @@ function Buscador() {
 
 
     return (
-        <div id='all'>
+        <div id='body'>
             <div id='formDate'>
-                <form action="">
-                    <label htmlFor="inicial">Fecha inicial</label>
-                    <input name='inicial' type='date' />
-                    <label htmlFor="final">Fecha final</label>
-                    <input name='final' type='date' />
-                    <input name='findDate' type='button' value='Buscar por fecha' onClick={ClickFindDate}/>
+                <form action="" id='form'>
+                    <label className='form-inputs' htmlFor="inicial">Fecha inicial</label>
+                    <input className='form-inputs' name='inicial' type='date' />
+                    <br />
+                    <label className='form-inputs' htmlFor="final">Fecha final</label>
+                    <input className='form-inputs' name='final' type='date' />
+                    <br />
+                    <input className='form-inputs' name='findDate' type='button' value='Buscar por fecha' onClick={ClickFindDate}/>
                 </form>
             </div>
 
@@ -60,9 +61,22 @@ function Buscador() {
             <Modal isOpen={true} onClose={()=> {
                 setDetail(null)
                 }}>
-            <div id="modalNombre">
-                <p>{detail[4]}</p>
-            </div>
+
+                <div id='completo'>
+                    <div id="modalNombre">
+                        <p>{detail[4]}</p>
+                    </div>
+
+                    <div id='modalMapa'>
+                        <iframe
+                        id="inlineFrameExample"
+                        width="800"
+                        height="600"
+                        src={detail[5]}>
+                        </iframe>
+                    </div>
+                </div>
+
               </Modal>
             }
             
