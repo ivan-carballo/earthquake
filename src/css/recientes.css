@@ -53,19 +53,19 @@ body {background-color: black;}
     border: 0;
 }
 
-#mapa-datos {
-    margin-left: 50px;
-}
-
-#mapa-datos p{
-    margin-left: 10px;
-}
-
 #mapa-mapa {
     margin-top: 25px;
 }
 
-#wait {
-    border-radius: 85%;
-    width: 10%;
+#mapa-datos {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+#datos h1 {
+    margin-left: -15px;
+}
+
+#cities h1 {
+    margin-left: -15px;
 }

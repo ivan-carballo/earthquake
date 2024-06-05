@@ -16,25 +16,20 @@ async function openCard(data) {
     let fechaFormatter = await detalleCompleto.properties.products.origin[0].properties.eventtime
     fechaFormatter = await FormatearFecha(fechaFormatter)
 
-    const detailID = detalleCompleto.id
-    const detailUpdate = detalleCompleto.properties.updated
-    const detailNet = detalleCompleto.properties.net
-
-    const findCities = await NearbyCities(detailID, detailNet, detailUpdate)
-    console.log(findCities)
-
-
+    
     let detalleArray = [
       'Magnitud: ' + detalleCompleto.properties.mag,
       'Localizacion: ' + detalleCompleto.properties.place,
       'Riesgo de tsunami: ' + detalleCompleto.properties.tsunami,
       'Profundidad: ' + detalleCompleto.properties.products.origin[0].properties.depth,
       'Fecha: ' + fechaFormatter,
-      URLMapa,
-      findCities
+      URLMapa
     ]
     return detalleArray
 }
+
+
+
 
 
 export {
