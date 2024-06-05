@@ -11,6 +11,7 @@ const Root = () => {
                 <div id='div-links'>
                     <NavLink to="/" className='link'>Recientes</NavLink>
                     <NavLink to="/finder" className='link'>Buscador</NavLink>
+                    <NavLink to="/simulator" className='link'>Simulador</NavLink>
                 </div>
             </nav>
             <Outlet />
