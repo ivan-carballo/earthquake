@@ -4,7 +4,7 @@ import '../css/simulador.css'
 
 
 
-function Simulator() {
+function Simulador() {
 
 
 
@@ -17,5 +17,5 @@ function Simulator() {
 
 
 export {
-    Simulator
+    Simulador
 }
