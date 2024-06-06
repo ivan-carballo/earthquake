@@ -25,6 +25,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-top: -50px;
 }
 
 #mensaje h3 {
@@ -35,8 +36,34 @@
     width: 50%;
 }
 
+#respuesta {
+    display: flex;
+    align-items: center;
+}
+
+#respuesta img {
+    border-radius: 25px;
+    height: 150px;
+    width: auto;
+    margin-left: 15px;
+}
+
+#reset {
+    text-align: center;
+    margin-top: -75px;
+}
+
+#img {
+    margin-top: 50px;
+}
+
 #img img {
     border: 25px;
+}
+
+.imgSeismo {
+    border-radius: 25px;
+    height: 500px;
 }
 
 @keyframes shake {

@@ -21,12 +21,12 @@ function Simulador() {
         const magSelected = e.target.form[0].value
         let i = 0
         let timeTotal
-        magSelected == 0 ? timeTotal = 4 : timeTotal = 10
+        magSelected == 0 ? timeTotal = 1.5 : timeTotal = 5
 
         setStyle(true);
-        setShake(magSelected == 0 ? 0 : 1 / parseInt(magSelected))
+        setShake(magSelected == 0 ? 0 : 0.5 / parseInt(magSelected))
         setDespues('')
-        setAntes(`../../public/A${magSelected}.jpg`)        
+        setAntes(`/A${magSelected}.jpg`)        
 
         const interval = setInterval(() => {
             setStyle(false);
@@ -34,11 +34,11 @@ function Simulador() {
             if (i >= timeTotal) {
               clearInterval(interval);
               setAntes('')
-              setDespues(`../../public/D${magSelected}.jpg`)
+              setDespues(`/D${magSelected}.jpg`)
               setText(frase[magSelected])
-              //setMeme()
+              setMeme(`/gif/${magSelected}.gif`)
             }
-          }, 500);
+          }, 1000);
     }
 
 
@@ -82,13 +82,18 @@ function Simulador() {
 
             <div id='estructura'>
                 <div id='mensaje'>
-                    <h3>{text}</h3>
-                    <h3>{reinicio[0]}</h3>
-                    <img src={reinicio[1]} />
+                    <div id='respuesta'>
+                        <h3>{text}</h3>
+                        <img src={meme} />
+                    </div>
+                    <div id='reset'>
+                        <h3>{reinicio[0]}</h3>
+                        <img src={reinicio[1]} />
+                    </div>
                 </div>
                 <div id='img'>
-                    <img id={style ? 'imgAntes' : ''} style={{ animation: `shake ${shake}s infinite alternate` }}src={antes} />
-                    <img src={despues} />
+                    <img id={style ? 'imgAntes' : ''} style={{ animation: `shake ${shake}s infinite alternate` }} className='imgSeismo' src={antes} />
+                    <img className='imgSeismo' src={despues} />
                 </div>
             </div>
         </div>

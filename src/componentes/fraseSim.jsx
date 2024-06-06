@@ -11,7 +11,7 @@ const frase = [
 
 const reset = [
     'Reparando todo lo que has roto',
-    '../../public/bola_wait.gif'
+    '/bola_wait.gif'
 ]
 
 
