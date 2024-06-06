@@ -56,11 +56,14 @@ body {background-color: black;}
 
 #mapa-mapa {
     margin-top: 25px;
+    display: flex;
+    justify-content: center;
 }
 
 #mapa-datos {
     display: flex;
     justify-content: space-evenly;
+    margin-top: -25px;
 }
 
 #datos h1 {
@@ -69,4 +72,17 @@ body {background-color: black;}
 
 #cities h1 {
     margin-left: -15px;
+}
+
+#pre-inf {
+    text-align: center;
+}
+
+#pre-inf > #p1 {
+    margin-top: 50px;
+}
+
+#pre-inf p {
+    font-size: 1.2rem;
+    margin-top: 10px;
 }

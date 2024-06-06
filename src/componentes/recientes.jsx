@@ -5,8 +5,7 @@ import '../css/recientes.css'
 import { Last, Detalle, Count } from '../api.js'
 import { openCard } from './openCard.jsx'
 import { CiudadesAfectadas } from './ciudadesAfectadas.jsx'
-import { func } from 'prop-types'
-
+import { initialInfo } from './initialInfo.jsx'
 
 
 
@@ -18,6 +17,7 @@ function Recientes() {
   const [contador, setContador] = useState('')
   const [rotulo, setRotulo] = useState('')
   const [rotuloCiudades, setRotuloCiudades] = useState('')
+  const [preInfo, setPreInfo] = useState(initialInfo)
 
 
   
@@ -30,6 +30,7 @@ function Recientes() {
   
       const listAPI = await datos.map((data) =>
         <div className='div-tarjeta' onClick={ async ()=>{
+            setPreInfo('')
             setData(data)
             setRotulo('Datos del seismo')
             setRotuloCiudades('Ciudades afectadas')
@@ -67,6 +68,13 @@ function Recientes() {
 
         </div>
         <div id='mapas'>
+          <div id='pre-inf'>
+            <h1>{preInfo[0]}</h1>
+            <p id='p1'>{preInfo[1]}</p>
+            <p>{preInfo[2]}</p>
+            <p>{preInfo[3]}</p>
+            <p>{preInfo[4]}</p>
+          </div>
 
           <div id='mapa-datos'>
             <div id='datos'>
@@ -77,7 +85,6 @@ function Recientes() {
               <p>{Detail[3]}</p>
               <p>{Detail[2]}</p>
             </div>
-              <p>{}</p>
             <div id='cities'>
               <h1>{rotuloCiudades}</h1>
               <p>{cities}</p>
