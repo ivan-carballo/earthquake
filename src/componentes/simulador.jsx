@@ -4,7 +4,27 @@ import '../css/simulador.css'
 
 
 
+
+
 function Simulador() {
+
+
+
+    async function iniciarSim(e) {
+        const magSelected = e.target.form[0].value
+
+        let i = 0
+        const interval = setInterval(() => {
+
+            // Repeticion
+
+            i++;
+            if (i >= 10) {
+              clearInterval(interval);
+              // Resultados
+            }
+          }, 500);
+    }
 
 
 
@@ -26,8 +46,12 @@ function Simulador() {
                         <option>5</option>
                     </select>
                     <br />
-                    <input id='button_sim' name='sim' type='button' value='Comenzar simulacion' />
+                    <input id='button_sim' name='sim' type='button' value='Comenzar simulacion' onClick={iniciarSim}/>
                 </form>
+            </div>
+
+            <div id='estructura'>
+
             </div>
         </div>
     )
