@@ -14,3 +14,27 @@
 #button_sim {
     margin-top: 10px;
 }
+
+#estructura {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#mensaje {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#mensaje h3 {
+    color: blanchedalmond;
+}
+
+#mensaje img {
+    width: 50%;
+}
+
+#img img {
+    border: 25px;
+}
