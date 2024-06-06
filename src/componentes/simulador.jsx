@@ -13,23 +13,31 @@ function Simulador() {
     const [meme, setMeme] = useState('')
     const [text, setText] = useState('')
     const [reinicio, setReinicio] = useState('')
+    const [style, setStyle] = useState(false)
+    const [shake, setShake] = useState('')
 
 
 
     async function iniciarSim(e) {
         const magSelected = e.target.form[0].value
         let i = 0
+        let timeTotal
+        magSelected == 0 ? timeTotal = 4 : timeTotal = 10
 
-        setAntes()        
+        setStyle(true);
+        setShake(magSelected == 0 ? 0 : 1 / parseInt(magSelected))
+        setDespues('')
+        setAntes(`../../public/A${magSelected}.jpg`)        
 
         const interval = setInterval(() => {
-            
+            setStyle(false);
             i++;
-            if (i >= 10) {
+            if (i >= timeTotal) {
               clearInterval(interval);
-              setDespues()
+              setAntes('')
+              setDespues(`../../public/D${magSelected}.jpg`)
               setText(frase[magSelected])
-              setMeme()
+              //setMeme()
             }
           }, 500);
     }
@@ -44,8 +52,8 @@ function Simulador() {
         
         setTimeout(() => {
             setReinicio('')
-        }, 2500);
-    }
+        }, 2000);
+    } 
 
 
 
@@ -80,7 +88,7 @@ function Simulador() {
                     <img src={reinicio[1]} />
                 </div>
                 <div id='img'>
-                    <img src={antes} />
+                    <img id={style ? 'imgAntes' : ''} style={{ animation: `shake ${shake}s infinite alternate` }}src={antes} />
                     <img src={despues} />
                 </div>
             </div>
