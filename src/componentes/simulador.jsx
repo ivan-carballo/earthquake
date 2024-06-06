@@ -6,7 +6,6 @@ import { frase, reset } from './fraseSim'
 
 
 
-
 function Simulador() {
     const [antes, setAntes] = useState('')
     const [despues, setDespues] = useState('')
