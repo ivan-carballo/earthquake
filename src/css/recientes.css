@@ -86,3 +86,18 @@ body {background-color: black;}
     font-size: 1.2rem;
     margin-top: 10px;
 }
+
+@media (max-width: 1800px) {
+    #all {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
+  @media (max-width: 1000px) {
+    #mapa-datos {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  }

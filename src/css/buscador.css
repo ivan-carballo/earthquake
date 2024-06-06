@@ -50,3 +50,35 @@
 #modalCiudades p {
     margin-left: -3px;
 }
+
+@media (max-width: 1550px) {
+    #results {
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    #completo {
+        display: flex;
+        flex-direction: column;
+    }
+
+    #modalDatos {
+        display: flex;
+    }
+
+    #modalDatos p {
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+}
+
+@media (max-width: 1150px) {
+    #results {
+      grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 750px) {
+    #results {
+      grid-template-columns: 1fr;
+    }
+}
