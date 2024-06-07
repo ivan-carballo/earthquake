@@ -12,6 +12,7 @@ const Root = () => {
                     <NavLink to="/" className='link'>Recientes</NavLink>
                     <NavLink to="/finder" className='link'>Buscador</NavLink>
                     <NavLink to="/simulator" className='link'>Simulador</NavLink>
+                    <NavLink to="/aviso" className='link'>Aviso</NavLink>
                 </div>
             </nav>
             <Outlet />

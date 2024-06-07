@@ -25,7 +25,10 @@ function Simulador() {
 
         setStyle(true);
         setShake(magSelected == 0 ? 0 : 0.5 / parseInt(magSelected))
+        setAntes('')
         setDespues('')
+        setMeme('')
+        setText('')
         setAntes(`/A${magSelected}.jpg`)        
 
         const interval = setInterval(() => {
