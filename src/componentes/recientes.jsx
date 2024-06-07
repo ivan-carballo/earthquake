@@ -74,6 +74,7 @@ function Recientes() {
             <p>{preInfo[2]}</p>
             <p>{preInfo[3]}</p>
             <p>{preInfo[4]}</p>
+            <p>{preInfo[5]}</p>
           </div>
 
           <div id='mapa-datos'>
