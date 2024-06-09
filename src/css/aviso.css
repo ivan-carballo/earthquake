@@ -41,7 +41,40 @@
 }
 
 #div-mensaje {
-    border: solid 2px greenyellow;
+    background-color: rgba(255, 255, 255, 0.222);
     margin: 10px;
-    padding: 5px;
+    padding: 5px 15px;
+    border-radius: 15px;
+}
+
+#camposVacios {
+    color: rgb(213, 44, 44);
+}
+
+@media (max-width: 1100px) {
+    #mensajesEnviados {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 800px) {
+    #mensajesEnviados {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 600px) {
+    #mensajesEnviados {
+        grid-template-columns: 1fr;
+    }
+
+    #datosCompleto {
+        display: flex;
+        flex-direction: column;
+    }
+
+    #form{
+        text-align: center;
+        margin-bottom: 15px;
+    }
 }

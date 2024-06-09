@@ -9,6 +9,10 @@ Esta plataforma ha sido desarrollada con el propósito de ofrecer a los usuarios
 - **Mapas interactivos:** Los mapas interactivos permiten a los usuarios explorar la distribución geográfica de los seismos y obtener información detallada sobre cada evento.
 - **Ciudades afectadas:** Los usuarios podran conocer que ciudades han sido afectadas por el seismo y saber a que distancia se encuentran del epicentro del mismo.
 
+## Sistema de aviso de nuevos seismos
+
+Nuestra plataforma ofrece un sofisticado sistema de alertas, mediante el cual los usuarios pueden reportar datos de eventos sísmicos que hayan experimentado, con el objetivo de enriquecer y actualizar nuestra base de datos en tiempo real, proporcionando así información detallada y completa sobre los mismos.
+
 ## Herramienta de simulacion de seismos
 
 La plataforma cuenta tambien con un avanzando simulación de seismos, herramienta online que permite a los usuarios simular y estudiar el comportamiento de los sismos de manera interactiva y totalmente online, sin necesidad de configuracion y/o instalacion alguna por parte del usuario.
