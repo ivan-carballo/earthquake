@@ -11,6 +11,7 @@ function Aviso() {
     const [mensajes, setMensajes] = useState('')
     const [mensajeTotal, setMensajeTotal] = useState(mensajesArray)
     const [camposRellenos, setCamposRellenos] = useState('')
+    const [camposEnviado, setCamposEnviado] = useState('')
     const [estadoBoton, setEstadoBoton] = useState(true);
 
     
@@ -55,6 +56,11 @@ function Aviso() {
             setCamposRellenos('')
             setMensajeTotal(allMensaje)
             setEstadoBoton(!estadoBoton);
+            setCamposEnviado('Su aviso de seismo ha sido enviado de forma correcta')
+
+            setTimeout(() => {
+                setCamposEnviado('')
+            }, 8000);
         }
     }
 
@@ -71,14 +77,15 @@ function Aviso() {
                 <div id='form'>
                     <form id='formulario'>
                         <p id='camposVacios'>{camposRellenos}</p>
+                        <p id='camposEnviado'>{camposEnviado}</p>
                         <label className='form-label' htmlFor="name">Nombre: </label>
-                        <input type="text" name="name" id="name" />
+                        <input type="text" name="name" id="name" placeholder='Nombre' />
                         <br />
                         <label className='form-label' htmlFor="city">Ciudad: </label>
-                        <input type="text" name="city" id="city" />
+                        <input type="text" name="city" id="city" placeholder='Ciudad' />
                         <br />
                         <label className='form-label' htmlFor="text">Mensaje: </label>
-                        <textarea name="text" id="text" cols='30' rows='8' />
+                        <textarea name="text" id="text" cols='30' rows='8' placeholder='Mensaje' />
                         <br />
                         <input id='buttonEnviar' type="button" value="Enviar" onClick={Enviar} />
                     </form>
